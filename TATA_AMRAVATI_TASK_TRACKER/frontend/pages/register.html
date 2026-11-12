@@ -1,0 +1,196 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account | Task Tracker</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/animation.css">
+</head>
+
+<body class="auth-page">
+
+    <header class="auth-header">
+        <a href="index.html" class="logo">Task<span>Tracker</span></a>
+
+        <button id="themeToggle" class="theme-toggle" type="button">
+            <span id="themeIcon">🌙</span>
+        </button>
+    </header>
+
+    <main class="auth-split-container">
+
+        <!-- Left illustration section -->
+        <section class="auth-visual">
+            <div class="visual-content">
+                <span class="visual-tag">YOUR PRODUCTIVITY PARTNER</span>
+
+                <h1>Make every day<br>more productive.</h1>
+
+                <p>
+                    Plan your work, organize your tasks and achieve
+                    your goals with your personal Task Tracker.
+                </p>
+
+                <div class="dashboard-illustration">
+                    <div class="illustration-top">
+                        <span class="illustration-dot"></span>
+                        <span class="illustration-dot"></span>
+                        <span class="illustration-dot"></span>
+                        <span class="illustration-title">My Dashboard</span>
+                    </div>
+
+                    <div class="illustration-body">
+                        <div class="illustration-stat">
+                            <span>Total Tasks</span>
+                            <strong>24</strong>
+                        </div>
+
+                        <div class="illustration-stat">
+                            <span>Completed</span>
+                            <strong>18</strong>
+                        </div>
+
+                        <div class="illustration-task">
+                            <span class="task-check">✓</span>
+                            <span>Complete project design</span>
+                            <span class="task-status">Done</span>
+                        </div>
+
+                        <div class="illustration-task">
+                            <span class="task-check">✓</span>
+                            <span>Review weekly goals</span>
+                            <span class="task-status">Done</span>
+                        </div>
+
+                        <div class="illustration-task">
+                            <span class="task-pending"></span>
+                            <span>Prepare project report</span>
+                            <span class="task-status pending">Pending</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="visual-footer">
+                    <span>✓ Stay organized</span>
+                    <span>✓ Stay focused</span>
+                    <span>✓ Get things done</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Registration form section -->
+        <section class="auth-form-section">
+            <div class="auth-card fade-in">
+
+                <div class="auth-heading">
+                    <span class="form-eyebrow">GET STARTED FOR FREE</span>
+                    <h1>Create your account</h1>
+                    <p>Join us and start organizing your tasks today.</p>
+                </div>
+
+                <form id="registerForm" class="auth-form" novalidate>
+
+                    <div class="form-group">
+                        <label for="name">Full name</label>
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            placeholder="Enter your full name"
+                            autocomplete="name"
+                            required
+                        >
+                        <small class="error-message" id="nameError"></small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email address</label>
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="example@email.com"
+                            autocomplete="email"
+                            required
+                        >
+                        <small class="error-message" id="emailError"></small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password</label>
+
+                        <div class="password-wrapper">
+                            <input
+                                type="password"
+                                id="password"
+                                name="password"
+                                placeholder="Create a password"
+                                autocomplete="new-password"
+                                required
+                            >
+
+                            <button
+                                type="button"
+                                class="password-toggle"
+                                data-target="password"
+                            >Show</button>
+                        </div>
+
+                        <small class="field-hint">
+                            At least 8 characters.
+                        </small>
+                        <small class="error-message" id="passwordError"></small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirm password</label>
+
+                        <div class="password-wrapper">
+                            <input
+                                type="password"
+                                id="confirmPassword"
+                                name="confirmPassword"
+                                placeholder="Enter your password again"
+                                autocomplete="new-password"
+                                required
+                            >
+
+                            <button
+                                type="button"
+                                class="password-toggle"
+                                data-target="confirmPassword"
+                            >Show</button>
+                        </div>
+
+                        <small class="error-message" id="confirmPasswordError"></small>
+                    </div>
+
+                    <button type="submit" class="auth-submit">
+                        Create Account
+                    </button>
+
+                    <p
+                        id="registerMessage"
+                        class="form-message"
+                        aria-live="polite"
+                    ></p>
+                </form>
+
+                <p class="auth-switch">
+                    Already have an account?
+                    <a href="login.html">Log in</a>
+                </p>
+
+            </div>
+        </section>
+
+    </main>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/auth.js"></script>
+
+</body>
+</html>

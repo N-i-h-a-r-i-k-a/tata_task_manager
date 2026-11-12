@@ -1,0 +1,73 @@
+
+/* Floating dashboard preview */
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+/* Smooth appearance */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Button animation */
+
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 0 0 0 #6d5ce855;
+    }
+
+    50% {
+        box-shadow: 0 0 0 10px transparent;
+    }
+}
+
+.hero-content {
+    animation: fadeIn 0.9s ease forwards;
+}
+
+.hero-preview {
+    animation: fadeIn 1.2s ease forwards;
+}
+
+.feature-card {
+    animation: fadeIn 0.8s ease both;
+}
+
+.feature-card:nth-child(2) {
+    animation-delay: 0.15s;
+}
+
+.feature-card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.btn-primary:focus-visible,
+.btn-secondary:focus-visible {
+    outline: 3px solid var(--primary);
+    outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}

@@ -1,0 +1,251 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Task Tracker</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/animation.css">
+</head>
+
+<body class="dashboard-page">
+
+    <header class="dashboard-header">
+        <a href="dashboard.html" class="logo">Task<span>Tracker</span></a>
+
+        <div class="header-actions">
+            <button id="themeToggle" class="theme-toggle" type="button">
+                <span id="themeIcon">🌙</span>
+            </button>
+
+            <span class="user-name" id="userName">Welcome, User</span>
+
+            <button id="logoutBtn" class="logout-btn" type="button">
+                Logout
+            </button>
+        </div>
+    </header>
+
+    <main class="dashboard-container">
+
+        <!-- Welcome section -->
+        <section class="dashboard-welcome">
+            <div>
+                <h1>My Dashboard</h1>
+                <p>Manage your tasks and stay productive.</p>
+            </div>
+
+            <span class="date-display" id="currentDate"></span>
+        </section>
+
+        <!-- Task statistics -->
+        <section class="stats-grid">
+
+            <div class="stat-card">
+                <div class="stat-icon purple">📋</div>
+                <p>Total Tasks</p>
+                <h2 id="totalTasks">0</h2>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon orange">⏳</div>
+                <p>Pending</p>
+                <h2 id="pendingTasks">0</h2>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon blue">🔄</div>
+                <p>In Progress</p>
+                <h2 id="progressTasks">0</h2>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon green">✅</div>
+                <p>Completed</p>
+                <h2 id="completedTasks">0</h2>
+            </div>
+
+        </section>
+
+        <!-- Task chart -->
+        <section class="task-chart-card">
+
+            <div class="section-heading">
+                <div>
+                    <h2>Task Overview</h2>
+                    <p>Visualize your task progress.</p>
+                </div>
+            </div>
+
+            <div class="chart-content">
+
+                <!-- Actual circular pie chart -->
+                <div class="status-pie-chart">
+                    <canvas
+                        id="taskStatusChart"
+                        role="img"
+                        aria-label="Pie chart showing Pending, In Progress and Completed tasks">
+                    </canvas>
+                </div>
+
+                <!-- Chart legend -->
+                <div class="chart-legend">
+
+                    <div class="legend-item">
+                        <span class="legend-color pending-color"></span>
+                        <span>Pending</span>
+                        <strong id="chartPending">0</strong>
+                    </div>
+
+                    <div class="legend-item">
+                        <span class="legend-color progress-color"></span>
+                        <span>In Progress</span>
+                        <strong id="chartProgress">0</strong>
+                    </div>
+
+                    <div class="legend-item">
+                        <span class="legend-color completed-color"></span>
+                        <span>Completed</span>
+                        <strong id="chartCompleted">0</strong>
+                    </div>
+
+                    <div class="legend-item">
+                        <strong>Total Tasks:</strong>
+                        <strong id="chartTotal">0</strong>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Add task section -->
+        <section class="task-form-card">
+
+            <div class="section-heading">
+                <div>
+                    <h2>Add New Task</h2>
+                    <p>Create a task to keep track of your work.</p>
+                </div>
+            </div>
+
+            <form id="taskForm" class="task-form">
+
+                <input type="hidden" id="taskId">
+
+                <div class="form-group">
+                    <label for="taskTitle">Task Title</label>
+                    <input
+                        type="text"
+                        id="taskTitle"
+                        placeholder="Enter task title"
+                        maxlength="150"
+                        required
+                    >
+                    <small class="error-message" id="taskTitleError"></small>
+                </div>
+
+                <div class="form-group">
+                    <label for="taskDescription">Description</label>
+                    <textarea
+                        id="taskDescription"
+                        placeholder="Describe your task"
+                        rows="3">
+                    </textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="taskStatus">Status</label>
+                    <select id="taskStatus">
+                        <option value="Pending">Pending</option>
+                        <option value="In Progress">In Progress</option>
+                        <option value="Completed">Completed</option>
+                    </select>
+                </div>
+
+                <div class="task-form-actions">
+
+                    <button type="submit" class="primary-btn" id="saveTaskBtn">
+                        Add Task
+                    </button>
+
+                    <button
+                        type="button"
+                        class="secondary-btn"
+                        id="cancelEditBtn"
+                        hidden>
+                        Cancel
+                    </button>
+
+                </div>
+
+                <p id="taskMessage" class="form-message" aria-live="polite"></p>
+
+            </form>
+        </section>
+
+        <!-- Task list section -->
+        <section class="task-list-card">
+
+            <div class="section-heading">
+                <div>
+                    <h2>My Tasks</h2>
+                    <p>View and manage all your tasks.</p>
+                </div>
+            </div>
+
+            <!-- Search and filter -->
+            <div class="task-controls">
+
+                <input
+                    type="search"
+                    id="searchTask"
+                    placeholder="Search tasks by title...">
+
+                <select id="filterStatus">
+                    <option value="All">All Statuses</option>
+                    <option value="Pending">Pending</option>
+                    <option value="In Progress">In Progress</option>
+                    <option value="Completed">Completed</option>
+                </select>
+
+            </div>
+
+            <!-- Tasks are rendered here -->
+            <div id="taskList" class="task-list">
+
+                <div class="empty-state">
+                    <span>📝</span>
+                    <h3>No tasks yet</h3>
+                    <p>Add your first task to get started.</p>
+                </div>
+
+            </div>
+
+            <!-- Pagination -->
+            <div class="task-pagination-section">
+
+                <p id="taskPageInfo">Showing 0 tasks</p>
+
+                <div
+                    id="taskPagination"
+                    class="task-pagination"
+                    aria-label="Task pagination">
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Load Chart.js before tasks.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/tasks.js"></script>
+
+</body>
+</html>

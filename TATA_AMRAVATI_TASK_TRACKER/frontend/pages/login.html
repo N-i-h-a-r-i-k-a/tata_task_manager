@@ -1,0 +1,223 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Task Tracker</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/animation.css">
+</head>
+
+<body class="auth-page">
+
+    <header class="auth-header">
+        <a href="index.html" class="logo">
+            Task<span>Tracker</span>
+        </a>
+
+        <button id="themeToggle" class="theme-toggle" type="button">
+            <span id="themeIcon">🌙</span>
+        </button>
+    </header>
+
+    <main class="auth-split-container">
+
+        <!-- LEFT ILLUSTRATION SECTION -->
+        <section class="auth-visual">
+
+            <div class="visual-content">
+                <span class="visual-tag">✦ YOUR PRODUCTIVITY PARTNER</span>
+
+                <h1>
+                    Organize your work.
+                    <span>Achieve more.</span>
+                </h1>
+
+                <p>
+                    Stay focused, manage your tasks, and turn
+                    your daily goals into accomplishments.
+                </p>
+
+                <div class="illustration-area">
+
+                    <div class="floating-card card-one">
+                        <span class="card-icon">✓</span>
+                        <div>
+                            <strong>Task completed</strong>
+                            <small>Great work today!</small>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-illustration">
+
+                        <div class="illustration-top">
+                            <div class="illustration-dots">
+                                <i></i><i></i><i></i>
+                            </div>
+                            <span>My Workspace</span>
+                        </div>
+
+                        <div class="illustration-title">
+                            <small>YOUR DASHBOARD</small>
+                            <h3>Today's Overview</h3>
+                        </div>
+
+                        <div class="illustration-stats">
+                            <div>
+                                <strong>12</strong>
+                                <small>Total Tasks</small>
+                            </div>
+                            <div>
+                                <strong>08</strong>
+                                <small>Completed</small>
+                            </div>
+                        </div>
+
+                        <div class="illustration-task">
+                            <span class="task-check">✓</span>
+                            <div>
+                                <strong>Complete project</strong>
+                                <small>Completed</small>
+                            </div>
+                            <span class="task-status">Done</span>
+                        </div>
+
+                        <div class="illustration-task">
+                            <span class="task-check pending"> </span>
+                            <div>
+                                <strong>Review assignments</strong>
+                                <small>In Progress</small>
+                            </div>
+                            <span class="task-status progress">Active</span>
+                        </div>
+
+                        <div class="progress-area">
+                            <div>
+                                <small>Weekly progress</small>
+                                <strong>75%</strong>
+                            </div>
+                            <div class="progress-track">
+                                <span></span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="floating-card card-two">
+                        <span class="rocket-icon">🚀</span>
+                        <div>
+                            <strong>Keep it up!</strong>
+                            <small>You're doing amazing</small>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="visual-footer">
+                    <span>✦</span> Plan better. Work smarter. Achieve more.
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- RIGHT LOGIN SECTION -->
+        <section class="auth-form-section">
+
+            <div class="auth-card fade-in">
+
+                <div class="auth-heading">
+                    <span class="form-welcome">WELCOME BACK 👋</span>
+
+                    <h2>Sign in to your account</h2>
+
+                    <p>
+                        Enter your details to continue your productivity journey.
+                    </p>
+                </div>
+
+                <form id="loginForm" class="auth-form" novalidate>
+
+                    <div class="form-group">
+                        <label for="email">Email address</label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="Enter your email"
+                            autocomplete="email"
+                            required
+                        >
+
+                        <small class="error-message" id="emailError"></small>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="password">Password</label>
+
+                        <div class="password-wrapper">
+
+                            <input
+                                type="password"
+                                id="password"
+                                name="password"
+                                placeholder="Enter your password"
+                                autocomplete="current-password"
+                                required
+                            >
+
+                            <button
+                                type="button"
+                                class="password-toggle"
+                                data-target="password"
+                            >
+                                Show
+                            </button>
+
+                        </div>
+
+                        <small class="error-message" id="passwordError"></small>
+                    </div>
+
+
+                    <button type="submit" class="auth-submit">
+                        Log In <span>→</span>
+                    </button>
+
+                    <p
+                        id="loginMessage"
+                        class="form-message"
+                        aria-live="polite"
+                    ></p>
+
+                </form>
+
+                <div class="auth-divider">
+                    <span>YOUR WORKSPACE AWAITS</span>
+                </div>
+
+                <p class="auth-switch">
+                    Don't have an account?
+                    <a href="register.html">Create an account</a>
+                </p>
+
+                <p class="auth-security">
+                    🔒 Your account and tasks are securely protected.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="../js/main.js"></script>
+    <script src="../js/auth.js"></script>
+
+</body>
+</html>
